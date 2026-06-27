@@ -22,6 +22,7 @@ var index_exports = {};
 __export(index_exports, {
   Box: () => Box,
   Button: () => Button,
+  Center: () => Center,
   Container: () => Container,
   Divider: () => Divider,
   Flex: () => Flex,
@@ -36,6 +37,7 @@ __export(index_exports, {
   shadows: () => shadows,
   sizes: () => sizes,
   spacing: () => spacing,
+  theme: () => theme,
   transitions: () => transitions,
   typography: () => typography,
   zIndex: () => zIndex
@@ -221,6 +223,22 @@ var transitions = {
   default: `all ${durations.normal} ${easings.easeInOut}`,
   fast: `all ${durations.fast} ${easings.easeOut}`,
   slow: `all ${durations.slow} ${easings.easeInOut}`
+};
+
+// src/theme/theme.ts
+var theme = {
+  colors,
+  spacing,
+  radius,
+  shadows,
+  typography,
+  breakpoints,
+  sizes,
+  opacity,
+  zIndex,
+  durations,
+  easings,
+  transitions
 };
 
 // src/components/Button/Button.tsx
@@ -414,10 +432,39 @@ function Container({
     }
   );
 }
+
+// src/components/Center/Center.tsx
+var import_jsx_runtime8 = require("react/jsx-runtime");
+function Center({
+  children,
+  className = "",
+  style,
+  width = "100%",
+  height = "auto",
+  inline = false,
+  ...props
+}) {
+  const normalizedWidth = typeof width === "number" ? `${width}px` : width;
+  const normalizedHeight = typeof height === "number" ? `${height}px` : height;
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+    "div",
+    {
+      className: `sansu-center ${inline ? "sansu-center--inline" : ""} ${className}`,
+      style: {
+        width: normalizedWidth,
+        height: normalizedHeight,
+        ...style
+      },
+      ...props,
+      children
+    }
+  );
+}
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Box,
   Button,
+  Center,
   Container,
   Divider,
   Flex,
@@ -432,6 +479,7 @@ function Container({
   shadows,
   sizes,
   spacing,
+  theme,
   transitions,
   typography,
   zIndex

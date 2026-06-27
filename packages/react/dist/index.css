@@ -68,4 +68,15 @@
   margin-inline: auto;
   box-sizing: border-box;
 }
+
+/* src/components/Center/Center.css */
+.sansu-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.sansu-center--inline {
+  display: inline-flex;
+}
 /*# sourceMappingURL=index.css.map */

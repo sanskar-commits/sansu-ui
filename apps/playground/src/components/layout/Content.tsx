@@ -6,6 +6,7 @@ import { DividerDemo } from "../demos/layout/DividerDemo";
 import { FlexDemo } from "../demos/layout/FlexDemo";
 import { SpacerDemo } from "../demos/layout/SpacerDemo";
 import { StackDemo } from "../demos/layout/StackDemo";
+import { CenterDemo } from "../demos/layout/CenterDemo";
 
 import { TokensDemo } from "../demos/tokens/TokensDemo";
 
@@ -19,6 +20,7 @@ export function Content() {
       <SpacerDemo />
       <DividerDemo />
       <ContainerDemo />
+      <CenterDemo />
       <TokensDemo />
     </>
   );

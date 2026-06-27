@@ -179,6 +179,22 @@ var transitions = {
   slow: `all ${durations.slow} ${easings.easeInOut}`
 };
 
+// src/theme/theme.ts
+var theme = {
+  colors,
+  spacing,
+  radius,
+  shadows,
+  typography,
+  breakpoints,
+  sizes,
+  opacity,
+  zIndex,
+  durations,
+  easings,
+  transitions
+};
+
 // src/components/Button/Button.tsx
 import { Fragment, jsx, jsxs } from "react/jsx-runtime";
 function Button({
@@ -370,9 +386,38 @@ function Container({
     }
   );
 }
+
+// src/components/Center/Center.tsx
+import { jsx as jsx8 } from "react/jsx-runtime";
+function Center({
+  children,
+  className = "",
+  style,
+  width = "100%",
+  height = "auto",
+  inline = false,
+  ...props
+}) {
+  const normalizedWidth = typeof width === "number" ? `${width}px` : width;
+  const normalizedHeight = typeof height === "number" ? `${height}px` : height;
+  return /* @__PURE__ */ jsx8(
+    "div",
+    {
+      className: `sansu-center ${inline ? "sansu-center--inline" : ""} ${className}`,
+      style: {
+        width: normalizedWidth,
+        height: normalizedHeight,
+        ...style
+      },
+      ...props,
+      children
+    }
+  );
+}
 export {
   Box,
   Button,
+  Center,
   Container,
   Divider,
   Flex,
@@ -387,6 +432,7 @@ export {
   shadows,
   sizes,
   spacing,
+  theme,
   transitions,
   typography,
   zIndex
