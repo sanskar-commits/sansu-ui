@@ -1,0 +1,65 @@
+.header {
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 32px;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  background: white;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header__logo {
+  font-size: 2rem;
+}
+
+.header__brand h1 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.header__brand p {
+  margin: 0;
+  color: #666;
+  font-size: .85rem;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header__version {
+  color: #777;
+}
+
+.header__button {
+  padding: 10px 18px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #111827;
+  color: white;
+
+  cursor: pointer;
+}
+
+.header__button:hover {
+  background: #000;
+}

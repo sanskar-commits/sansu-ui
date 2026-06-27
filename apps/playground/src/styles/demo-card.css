@@ -1,0 +1,46 @@
+.demo-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+
+.demo-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 24px;
+
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.demo-card__title {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.demo-card__description {
+  margin-top: 6px;
+  color: #64748b;
+  font-size: .95rem;
+}
+
+.demo-card__badge {
+  background: #dcfce7;
+  color: #166534;
+
+  padding: 4px 10px;
+
+  border-radius: 999px;
+
+  font-size: .75rem;
+  font-weight: 600;
+}
+
+.demo-card__body {
+  padding: 24px;
+}

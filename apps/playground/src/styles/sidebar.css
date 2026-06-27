@@ -1,0 +1,36 @@
+.sidebar__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10px 12px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.sidebar__item:hover {
+  background: #eff6ff;
+}
+
+.sidebar__badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+
+  padding: 2px 8px;
+
+  border-radius: 999px;
+}
+
+.sidebar__badge--beta {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.sidebar__badge--coming {
+  background: #e5e7eb;
+  color: #4b5563;
+}
