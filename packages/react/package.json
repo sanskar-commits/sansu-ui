@@ -1,35 +1,56 @@
 {
   "name": "@sansu-ui/react",
   "version": "0.1.0",
-  "description": "Modern React UI Library",
+  "description": "Modern React UI Component Library",
+  "author": "Sanskar Amle",
+  "license": "MIT",
+  "homepage": "https://github.com/sanskar-commits/sansu-ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sanskar-commits/sansu-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sanskar-commits/sansu-ui/issues"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "ui",
+    "component-library",
+    "design-system",
+    "tailwindcss",
+    "sansu-ui"
+  ],
+  "private": false,
   "type": "module",
-  "main": "./dist/index.js",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     }
   },
-  "files": [
-    "dist"
-  ],"scripts": {
-  "dev": "vite",
-  "build": "tsup",
-  "typecheck": "tsc --noEmit",
-  "lint": "eslint src"
-},
-  "keywords": [
-    "react",
-    "ui",
-    "components",
-    "tailwind",
-    "design-system",
-    "sansu-ui"
-  ],
-  "author": "Sanskar Amle",
-  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src",
+    "prepublishOnly": "pnpm build"
+  },
   "peerDependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
@@ -40,15 +61,5 @@
     "@vitejs/plugin-react": "^6.0.3",
     "typescript": "^6.0.3",
     "vite": "^8.1.0"
-  },
-  "repository": {
-  "type": "git",
-  "url": "https://github.com/sanskar-commits/sansu-ui.git"
-},
-  "private": true,
-  "homepage": "https://github.com/sanskar-commits/sansu-ui",
-  "bugs": {
-  "url": "https://github.com/sanskar-commits/sansu-ui/issues"
-},
-"prepublishOnly": "pnpm build"
+  }
 }
