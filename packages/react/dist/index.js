@@ -1,3 +1,37 @@
+// src/components/layout/Center/Center.tsx
+import { forwardRef } from "react";
+
+// src/system/cx.ts
+function cx(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
+// src/components/layout/Center/Center.tsx
+import { jsx } from "react/jsx-runtime";
+var Center = forwardRef(
+  ({
+    inline = false,
+    className,
+    children,
+    ...rest
+  }, ref) => {
+    return /* @__PURE__ */ jsx(
+      "div",
+      {
+        ref,
+        className: cx(
+          "sansu-center",
+          inline && "sansu-center--inline",
+          className
+        ),
+        ...rest,
+        children
+      }
+    );
+  }
+);
+Center.displayName = "Center";
+
 // src/tokens/colors.ts
 var colors = {
   transparent: "transparent",
@@ -194,235 +228,8 @@ var theme = {
   easings,
   transitions
 };
-
-// src/components/Button/Button.tsx
-import { Fragment, jsx, jsxs } from "react/jsx-runtime";
-function Button({
-  children,
-  variant = "solid",
-  size = "md",
-  loading = false,
-  leftIcon,
-  rightIcon,
-  ...props
-}) {
-  return /* @__PURE__ */ jsx(
-    "button",
-    {
-      className: `sansu-btn sansu-btn-${variant} sansu-btn-${size}`,
-      disabled: loading || props.disabled,
-      ...props,
-      children: loading ? "Loading..." : /* @__PURE__ */ jsxs(Fragment, { children: [
-        leftIcon,
-        children,
-        rightIcon
-      ] })
-    }
-  );
-}
-
-// src/components/Box/Box.tsx
-import { forwardRef } from "react";
-import { jsx as jsx2 } from "react/jsx-runtime";
-var Box = forwardRef(
-  ({
-    as: Component = "div",
-    children,
-    className,
-    style,
-    ...props
-  }, ref) => {
-    return /* @__PURE__ */ jsx2(
-      Component,
-      {
-        ref,
-        className,
-        style,
-        ...props,
-        children
-      }
-    );
-  }
-);
-Box.displayName = "Box";
-
-// src/components/Flex/Flex.tsx
-import { jsx as jsx3 } from "react/jsx-runtime";
-function Flex({
-  children,
-  direction = "row",
-  wrap = "nowrap",
-  justify = "flex-start",
-  align = "stretch",
-  gap = 0,
-  inline = false,
-  style,
-  className = "",
-  ...props
-}) {
-  return /* @__PURE__ */ jsx3(
-    "div",
-    {
-      className: `${inline ? "sansu-inline-flex" : "sansu-flex"} ${className}`,
-      style: {
-        flexDirection: direction,
-        flexWrap: wrap,
-        justifyContent: justify,
-        alignItems: align,
-        gap,
-        ...style
-      },
-      ...props,
-      children
-    }
-  );
-}
-
-// src/components/Stack/Stack.tsx
-import { jsx as jsx4 } from "react/jsx-runtime";
-function Stack({
-  children,
-  spacing: spacing2 = 0,
-  align = "stretch",
-  justify = "flex-start",
-  wrap = "nowrap",
-  className = "",
-  style
-}) {
-  return /* @__PURE__ */ jsx4(
-    Flex,
-    {
-      direction: "column",
-      gap: spacing2,
-      align,
-      justify,
-      wrap,
-      className,
-      style,
-      children
-    }
-  );
-}
-
-// src/components/Spacer/Spacer.tsx
-import { jsx as jsx5 } from "react/jsx-runtime";
-function Spacer({
-  style,
-  ...props
-}) {
-  return /* @__PURE__ */ jsx5(
-    "div",
-    {
-      style: {
-        flex: 1,
-        alignSelf: "stretch",
-        ...style
-      },
-      ...props
-    }
-  );
-}
-
-// src/components/Divider/Divider.tsx
-import { jsx as jsx6 } from "react/jsx-runtime";
-function Divider({
-  orientation = "horizontal",
-  thickness = 1,
-  color = colors.gray[200],
-  margin = spacing[4],
-  style,
-  ...props
-}) {
-  const isNumber = typeof margin === "number";
-  const normalizedMargin = isNumber ? `${margin}px` : margin;
-  const dividerStyle = orientation === "horizontal" ? {
-    height: thickness,
-    margin: `${normalizedMargin} 0`
-  } : {
-    width: thickness,
-    margin: `0 ${normalizedMargin}`
-  };
-  return /* @__PURE__ */ jsx6(
-    "hr",
-    {
-      role: "separator",
-      "aria-orientation": orientation,
-      className: `sansu-divider sansu-divider--${orientation}`,
-      style: {
-        color,
-        ...dividerStyle,
-        ...style
-      },
-      ...props
-    }
-  );
-}
-
-// src/components/Container/Container.tsx
-import { jsx as jsx7 } from "react/jsx-runtime";
-function Container({
-  children,
-  className = "",
-  style,
-  maxWidth = "1200px",
-  fluid = false,
-  padding = spacing[6],
-  ...props
-}) {
-  const normalizedPadding = typeof padding === "number" ? `${padding}px` : padding;
-  const normalizedMaxWidth = typeof maxWidth === "number" ? `${maxWidth}px` : maxWidth;
-  return /* @__PURE__ */ jsx7(
-    "div",
-    {
-      className: `sansu-container ${className}`,
-      style: {
-        maxWidth: fluid ? "100%" : normalizedMaxWidth,
-        paddingInline: normalizedPadding,
-        background: colors.transparent,
-        ...style
-      },
-      ...props,
-      children
-    }
-  );
-}
-
-// src/components/Center/Center.tsx
-import { jsx as jsx8 } from "react/jsx-runtime";
-function Center({
-  children,
-  className = "",
-  style,
-  width = "100%",
-  height = "auto",
-  inline = false,
-  ...props
-}) {
-  const normalizedWidth = typeof width === "number" ? `${width}px` : width;
-  const normalizedHeight = typeof height === "number" ? `${height}px` : height;
-  return /* @__PURE__ */ jsx8(
-    "div",
-    {
-      className: `sansu-center ${inline ? "sansu-center--inline" : ""} ${className}`,
-      style: {
-        width: normalizedWidth,
-        height: normalizedHeight,
-        ...style
-      },
-      ...props,
-      children
-    }
-  );
-}
 export {
-  Box,
-  Button,
   Center,
-  Container,
-  Divider,
-  Flex,
-  Spacer,
-  Stack,
   breakpoints,
   colors,
   durations,

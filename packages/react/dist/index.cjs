@@ -20,14 +20,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.ts
 var index_exports = {};
 __export(index_exports, {
-  Box: () => Box,
-  Button: () => Button,
   Center: () => Center,
-  Container: () => Container,
-  Divider: () => Divider,
-  Flex: () => Flex,
-  Spacer: () => Spacer,
-  Stack: () => Stack,
   breakpoints: () => breakpoints,
   colors: () => colors,
   durations: () => durations,
@@ -43,6 +36,40 @@ __export(index_exports, {
   zIndex: () => zIndex
 });
 module.exports = __toCommonJS(index_exports);
+
+// src/components/layout/Center/Center.tsx
+var import_react = require("react");
+
+// src/system/cx.ts
+function cx(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
+// src/components/layout/Center/Center.tsx
+var import_jsx_runtime = require("react/jsx-runtime");
+var Center = (0, import_react.forwardRef)(
+  ({
+    inline = false,
+    className,
+    children,
+    ...rest
+  }, ref) => {
+    return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+      "div",
+      {
+        ref,
+        className: cx(
+          "sansu-center",
+          inline && "sansu-center--inline",
+          className
+        ),
+        ...rest,
+        children
+      }
+    );
+  }
+);
+Center.displayName = "Center";
 
 // src/tokens/colors.ts
 var colors = {
@@ -240,236 +267,9 @@ var theme = {
   easings,
   transitions
 };
-
-// src/components/Button/Button.tsx
-var import_jsx_runtime = require("react/jsx-runtime");
-function Button({
-  children,
-  variant = "solid",
-  size = "md",
-  loading = false,
-  leftIcon,
-  rightIcon,
-  ...props
-}) {
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-    "button",
-    {
-      className: `sansu-btn sansu-btn-${variant} sansu-btn-${size}`,
-      disabled: loading || props.disabled,
-      ...props,
-      children: loading ? "Loading..." : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-        leftIcon,
-        children,
-        rightIcon
-      ] })
-    }
-  );
-}
-
-// src/components/Box/Box.tsx
-var import_react = require("react");
-var import_jsx_runtime2 = require("react/jsx-runtime");
-var Box = (0, import_react.forwardRef)(
-  ({
-    as: Component = "div",
-    children,
-    className,
-    style,
-    ...props
-  }, ref) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-      Component,
-      {
-        ref,
-        className,
-        style,
-        ...props,
-        children
-      }
-    );
-  }
-);
-Box.displayName = "Box";
-
-// src/components/Flex/Flex.tsx
-var import_jsx_runtime3 = require("react/jsx-runtime");
-function Flex({
-  children,
-  direction = "row",
-  wrap = "nowrap",
-  justify = "flex-start",
-  align = "stretch",
-  gap = 0,
-  inline = false,
-  style,
-  className = "",
-  ...props
-}) {
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-    "div",
-    {
-      className: `${inline ? "sansu-inline-flex" : "sansu-flex"} ${className}`,
-      style: {
-        flexDirection: direction,
-        flexWrap: wrap,
-        justifyContent: justify,
-        alignItems: align,
-        gap,
-        ...style
-      },
-      ...props,
-      children
-    }
-  );
-}
-
-// src/components/Stack/Stack.tsx
-var import_jsx_runtime4 = require("react/jsx-runtime");
-function Stack({
-  children,
-  spacing: spacing2 = 0,
-  align = "stretch",
-  justify = "flex-start",
-  wrap = "nowrap",
-  className = "",
-  style
-}) {
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-    Flex,
-    {
-      direction: "column",
-      gap: spacing2,
-      align,
-      justify,
-      wrap,
-      className,
-      style,
-      children
-    }
-  );
-}
-
-// src/components/Spacer/Spacer.tsx
-var import_jsx_runtime5 = require("react/jsx-runtime");
-function Spacer({
-  style,
-  ...props
-}) {
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
-    "div",
-    {
-      style: {
-        flex: 1,
-        alignSelf: "stretch",
-        ...style
-      },
-      ...props
-    }
-  );
-}
-
-// src/components/Divider/Divider.tsx
-var import_jsx_runtime6 = require("react/jsx-runtime");
-function Divider({
-  orientation = "horizontal",
-  thickness = 1,
-  color = colors.gray[200],
-  margin = spacing[4],
-  style,
-  ...props
-}) {
-  const isNumber = typeof margin === "number";
-  const normalizedMargin = isNumber ? `${margin}px` : margin;
-  const dividerStyle = orientation === "horizontal" ? {
-    height: thickness,
-    margin: `${normalizedMargin} 0`
-  } : {
-    width: thickness,
-    margin: `0 ${normalizedMargin}`
-  };
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-    "hr",
-    {
-      role: "separator",
-      "aria-orientation": orientation,
-      className: `sansu-divider sansu-divider--${orientation}`,
-      style: {
-        color,
-        ...dividerStyle,
-        ...style
-      },
-      ...props
-    }
-  );
-}
-
-// src/components/Container/Container.tsx
-var import_jsx_runtime7 = require("react/jsx-runtime");
-function Container({
-  children,
-  className = "",
-  style,
-  maxWidth = "1200px",
-  fluid = false,
-  padding = spacing[6],
-  ...props
-}) {
-  const normalizedPadding = typeof padding === "number" ? `${padding}px` : padding;
-  const normalizedMaxWidth = typeof maxWidth === "number" ? `${maxWidth}px` : maxWidth;
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-    "div",
-    {
-      className: `sansu-container ${className}`,
-      style: {
-        maxWidth: fluid ? "100%" : normalizedMaxWidth,
-        paddingInline: normalizedPadding,
-        background: colors.transparent,
-        ...style
-      },
-      ...props,
-      children
-    }
-  );
-}
-
-// src/components/Center/Center.tsx
-var import_jsx_runtime8 = require("react/jsx-runtime");
-function Center({
-  children,
-  className = "",
-  style,
-  width = "100%",
-  height = "auto",
-  inline = false,
-  ...props
-}) {
-  const normalizedWidth = typeof width === "number" ? `${width}px` : width;
-  const normalizedHeight = typeof height === "number" ? `${height}px` : height;
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-    "div",
-    {
-      className: `sansu-center ${inline ? "sansu-center--inline" : ""} ${className}`,
-      style: {
-        width: normalizedWidth,
-        height: normalizedHeight,
-        ...style
-      },
-      ...props,
-      children
-    }
-  );
-}
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-  Box,
-  Button,
   Center,
-  Container,
-  Divider,
-  Flex,
-  Spacer,
-  Stack,
   breakpoints,
   colors,
   durations,

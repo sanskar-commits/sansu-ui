@@ -1,30 +1,49 @@
 import {
-  Box,
   Button,
   Center,
-  colors,
-  radius,
+  Stack,
 } from "@sansu-ui/react";
 
-import { DemoCard } from "../../ui/DemoCard";
+import DemoCard from "../layout/DemoCard";
 
-export function CenterDemo() {
+export default function CenterDemo() {
   return (
     <DemoCard
       title="Center"
-      description="Center content horizontally and vertically."
+      description="Centers content horizontally and vertically."
     >
-      <Box
-        style={{
-          border: `1px solid ${colors.gray[200]}`,
-          borderRadius: radius.lg,
-          background: colors.gray[50],
-        }}
-      >
-        <Center height={220}>
+      <Stack gap={32}>
+        <Center
+          style={{
+            height: 140,
+            border: "1px dashed #CBD5E1",
+          }}
+        >
           <Button>Centered Button</Button>
         </Center>
-      </Box>
+
+        <Center
+          inline
+          style={{
+            width: 220,
+            height: 80,
+            border: "1px dashed #CBD5E1",
+          }}
+        >
+          Inline Center
+        </Center>
+
+        <Center
+          as="section"
+          style={{
+            height: 120,
+            background: "#F8FAFC",
+            borderRadius: 8,
+          }}
+        >
+          Custom HTML Element
+        </Center>
+      </Stack>
     </DemoCard>
   );
 }

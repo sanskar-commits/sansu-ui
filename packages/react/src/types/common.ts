@@ -1,16 +1,30 @@
-import { CSSProperties, ReactNode } from "react";
+import type {
+  CSSProperties,
+  HTMLAttributes,
+  ReactNode,
+} from "react";
 
-/**
- * Common props shared by most Sansu UI components.
- */
-export interface BaseProps {
-  /**
-   * Component content.
-   */
-  children?: ReactNode;
+/* -------------------------------------------------------------------------- */
+/*                                  Tokens                                    */
+/* -------------------------------------------------------------------------- */
 
+export type SpacingValue = number | string;
+
+export type SizeValue = number | string;
+
+export type RadiusValue = number | string;
+
+export type ShadowValue = string;
+
+export type ColorValue = string;
+
+/* -------------------------------------------------------------------------- */
+/*                                Base Props                                  */
+/* -------------------------------------------------------------------------- */
+
+export interface SansuProps {
   /**
-   * Additional CSS class.
+   * Additional CSS classes.
    */
   className?: string;
 
@@ -18,4 +32,17 @@ export interface BaseProps {
    * Inline styles.
    */
   style?: CSSProperties;
+
+  /**
+   * Component children.
+   */
+  children?: ReactNode;
 }
+
+/* -------------------------------------------------------------------------- */
+/*                               HTML Props                                   */
+/* -------------------------------------------------------------------------- */
+
+export type HTMLSansuProps<T extends HTMLElement> =
+  HTMLAttributes<T> &
+  SansuProps;
