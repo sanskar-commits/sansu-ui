@@ -1,0 +1,15 @@
+blank_issues_enabled: false
+
+contact_links:
+
+* name: 💬 Support
+  url: https://github.com/sanskar-commits/sansu-ui/discussions
+  about: Ask questions, get help, or start a discussion.
+
+* name: 📖 Documentation
+  url: https://github.com/sanskar-commits/sansu-ui#readme
+  about: Read the documentation before opening an issue.
+
+* name: 🔒 Security Vulnerability
+  url: https://github.com/sanskar-commits/sansu-ui/security
+  about: Please report security vulnerabilities privately.
